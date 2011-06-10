@@ -1,0 +1,286 @@
+package com.hovto.chepai.web.action;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import com.hovto.chepai.exception.ChePaiException;
+import com.hovto.chepai.model.BigBatchNumber;
+import com.hovto.chepai.model.PostAddress;
+import com.hovto.chepai.model.SmallnessBatchNumber;
+import com.hovto.chepai.server.BigBatchNumberServer;
+import com.hovto.chepai.server.PostAddressServer;
+import com.hovto.chepai.server.SmallnessBatchNumberServer;
+import com.hovto.chepai.tool.DelDir;
+import com.hovto.chepai.tool.ExcelReport;
+import com.hovto.chepai.tool.JacobPrint;
+import com.hovto.chepai.tool.Page;
+import com.opensymphony.xwork2.ActionContext;
+
+
+@SuppressWarnings("serial")
+@Component
+@Scope("prototype")
+public class BigBatchNumberAction {
+
+	@Resource
+	private BigBatchNumberServer bigBatchNumberServer;
+	@Resource
+	private SmallnessBatchNumberServer smallnessBatchNumberServer;
+	@Resource
+	private PostAddressServer postAddressServer;
+	private Page page = new Page();
+	private BigBatchNumber bigBatchNumber;
+	private SmallnessBatchNumber smallBatch;
+	private List<BigBatchNumber> bigBatchNumbers;
+	private List<SmallnessBatchNumber> smalls;
+	private String startTime;
+	private String endTime;
+	private String place;
+	private int isDeliverGoods;
+	private int smallBatchId;
+	private String bigNo;
+	private String plateNo;
+	private int[] goFlows;
+	private int bid;
+	
+	public String upGrade() {
+		bigBatchNumberServer.upGrade(bid);
+		ActionContext.getContext().put("message", "升级成功!<br/><a href='BigBatchNumber!findByMakeStatus.action'>返回操作</a>");
+		return "message";
+	}
+	/**
+	 * 仓库管理发货查询
+	 * @return
+	 */
+	public String findIsDeliverGoods() {
+		if(plateNo != null && !plateNo.trim().equals("")) {
+			smalls = smallnessBatchNumberServer.findIsFaHuo(plateNo);
+		} else {
+			bigBatchNumbers = bigBatchNumberServer.findIsDeliverGoods(bigNo,startTime, endTime, place, isDeliverGoods,page);
+		}
+		return "findIsDeliverGoods";
+	}
+	/**
+	 * 查询统计发货查询
+	 * @return
+	 */
+	public String selectIsDeliverGoods() {
+		if(plateNo != null && !plateNo.trim().equals("")) {
+			smalls = smallnessBatchNumberServer.findIsFaHuo(plateNo);
+		} else {
+			bigBatchNumbers = bigBatchNumberServer.findIsDeliverGoods(bigNo,startTime, endTime, place, isDeliverGoods,page);
+		}
+		return "selectIsDeliverGoods";
+	}
+	
+	public String findByMakeStatus() {
+		bigBatchNumbers = bigBatchNumberServer.findByMakeStatus(page);
+		return "findByMakeStatus";
+	}
+	
+	public String goFlows() {
+		bigBatchNumberServer.goFlows(goFlows);
+		ActionContext.getContext().put("message", "任务下发成功!<br/><a href='BigBatchNumber!findByMakeStatus.action'>返回操作</a>");
+		return "message";
+	}
+	
+	public String findByNumber() {
+		
+		return "findByNumber";
+	}
+	@SuppressWarnings("deprecation")
+	public String printBig() throws IOException{
+		bigBatchNumber = bigBatchNumberServer.find(bigBatchNumber);
+		bigBatchNumber.getNumberPlateType().getTypeName();
+		smalls = smallnessBatchNumberServer.findByBig(bigBatchNumber.getId());
+		if(smalls.size()==0){
+			throw new ChePaiException("该大批号没有可打印的。<a href='BigBatchNumber!findIsDeliverGoods.action'>返回</a>");
+		}
+		List<PostAddress> postList = postAddressServer.findPostAddress(bigBatchNumber.getPlace(), bigBatchNumberServer.findDepartment(bigBatchNumber.getId()));
+		if(postList==null){
+			throw new ChePaiException("没有该批号的发货地址！<a href='BigBatchNumber!findIsDeliverGoods.action'>返回</a>");
+		}else if(postList.size()>1){
+			int HKindex = -1;   //港牌下标
+			int MCindex = -1;   //澳牌下标
+			for(int i=0;i<postList.size();i++){
+				if(postList.get(i).getRemark().equals("港牌"))  HKindex = i;
+				else if(postList.get(i).getRemark().equals("澳牌")) MCindex = i;
+			}
+			//如果是港牌
+			if(smalls.get(0).getNumberPlateType().getTypeName().equals("港车出入境号牌") && HKindex!=-1) {
+				postList.remove(MCindex);
+			}
+			//如果是澳牌
+			else if(smalls.get(0).getNumberPlateType().getTypeName().equals("澳车出入境号牌") && MCindex!=-1 ){
+				postList.remove(HKindex);
+			}
+		}
+		//创建目录
+		String filepath = ServletActionContext.getRequest().getRealPath("\\excel\\EMS\\"+bigBatchNumber.getBigBattchNumber());
+		DelDir.mdDir(filepath);
+		String modelpath = getRealPath("EMSModel");
+		List<String> pathlist = new ArrayList<String>();
+		for(SmallnessBatchNumber one:smalls){
+			filepath =  getRealPath(bigBatchNumber.getBigBattchNumber()+"\\"+one.getSmallnessBatchNumber());
+			ExcelReport.exportEMS(filepath, modelpath, postList.get(0),one.getSmallnessBatchNumber(),one.getAmount());	
+			pathlist.add(filepath);
+		}
+		JacobPrint.print("",pathlist,3);
+		ActionContext.getContext().put("message", "打印成功!<a href='BigBatchNumber!findIsDeliverGoods.action'>返回</a>");
+		return "message";
+	}
+	
+	@SuppressWarnings("deprecation")
+	public String printSmall() throws IOException{
+		smallBatch = smallnessBatchNumberServer.findById(smallBatch.getId());
+		List<PostAddress> postList = postAddressServer.findPostAddress(smallBatch.getBigBatchNumber().getPlace(),bigBatchNumberServer.findDepartment(smallBatch.getBigBatchNumber().getId()));
+		if(postList.size()==0){
+			throw new ChePaiException("没有该地区的地址。");
+		}else if(postList.size()>1){
+			int HKindex = -1;   //港牌下标
+			int MCindex = -1;   //澳牌下标
+			for(int i=0;i<postList.size();i++){
+				if(postList.get(i).getRemark().equals("港牌"))  HKindex = i;
+				else if(postList.get(i).getRemark().equals("澳牌")) MCindex = i;
+			}
+			//如果是港牌
+			if(smallBatch.getNumberPlateType().getTypeName().equals("港车出入境号牌") && HKindex!=-1) {
+				postList.remove(MCindex);
+			}
+			//如果是澳牌
+			else if(smallBatch.getNumberPlateType().getTypeName().equals("澳车出入境号牌") && MCindex!=-1 ){
+				postList.remove(HKindex);
+			}
+		}
+		String filepath = ServletActionContext.getRequest().getRealPath("\\excel\\EMS\\"+smallBatch.getBigBatchNumber().getBigBattchNumber());
+		DelDir.mdDir(filepath);
+		String modelpath = getRealPath("EMSModel");
+		filepath =  getRealPath(smallBatch.getBigBatchNumber().getBigBattchNumber()+"\\"+smallBatch.getSmallnessBatchNumber());
+		ExcelReport.exportEMS(filepath,modelpath,postList.get(0),smallBatch.getSmallnessBatchNumber(),smallBatch.getAmount());
+		JacobPrint.print(filepath,null,2);
+		ActionContext.getContext().put("message", "打印成功!<a href='BigBatchNumber!findIsDeliverGoods.action'>返回</a>");
+		return "message";
+	}
+	
+	@SuppressWarnings("deprecation")
+	private String getRealPath(String filename){
+		return ServletActionContext.getRequest().getRealPath("\\excel\\EMS\\")+"\\"+filename+".xls";
+	}
+	
+	public BigBatchNumber getBigBatchNumber() {
+		return bigBatchNumber;
+	}
+	public void setBigBatchNumber(BigBatchNumber bigBatchNumber) {
+		this.bigBatchNumber = bigBatchNumber;
+	}
+	public List<BigBatchNumber> getBigBatchNumbers() {
+		return bigBatchNumbers;
+	}
+	public void setBigBatchNumbers(List<BigBatchNumber> bigBatchNumbers) {
+		this.bigBatchNumbers = bigBatchNumbers;
+	}
+
+	public int getSmallBatchId() {
+		return smallBatchId;
+	}
+
+	public void setSmallBatchId(int smallBatchId) {
+		this.smallBatchId = smallBatchId;
+	}
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getPlace() {
+		return place;
+	}
+
+
+	public void setPlace(String place) {
+		this.place = place;
+	}
+
+	public int getIsDeliverGoods() {
+		return isDeliverGoods;
+	}
+
+	public Page getPage() {
+		return page;
+	}
+
+	public void setPage(Page page) {
+		this.page = page;
+	}
+
+	public void setIsDeliverGoods(int isDeliverGoods) {
+		this.isDeliverGoods = isDeliverGoods;
+	}
+
+	public String getBigNo() {
+		return bigNo;
+	}
+
+	public void setBigNo(String bigNo) {
+		this.bigNo = bigNo;
+	}
+
+	public String getPlateNo() {
+		return plateNo;
+	}
+
+	public void setPlateNo(String plateNo) {
+		this.plateNo = plateNo;
+	}
+
+	public SmallnessBatchNumber getSmallBatch() {
+		return smallBatch;
+	}
+
+	public void setSmallBatch(SmallnessBatchNumber smallBatch) {
+		this.smallBatch = smallBatch;
+	}
+
+	public List<SmallnessBatchNumber> getSmalls() {
+		return smalls;
+	}
+
+	public void setSmalls(List<SmallnessBatchNumber> smalls) {
+		this.smalls = smalls;
+	}
+
+	public int[] getGoFlows() {
+		return goFlows;
+	}
+
+	public void setGoFlows(int[] goFlows) {
+		this.goFlows = goFlows;
+	}
+
+	public int getBid() {
+		return bid;
+	}
+
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
+	
+}

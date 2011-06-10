@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head runat="server">
+		<title>车牌管理系统</title>
+		<link href="../css/textbox.css" rel=stylesheet />
+		<script type="text/javascript">
+    function ComfirmExit(action){
+	if(action==1)
+	{
+		myconfirm = confirm("确认要重新登陆吗？");
+		if (myconfirm==true){
+			top.location.href="ExitAction!exit.action";
+		}
+	}
+	}
+    </script>
+	</head>
+	<body>
+		<form id="form1" runat="server">
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+					<td
+						style="width: 573px; height: 101px; background-image: url(../Images/top_left.gif); background-repeat: no-repeat;">
+					</td>
+					<td
+						style="background-image: url(../Images/top_middle.gif); background-repeat: repeat-x;">
+						&nbsp;
+					</td>
+					<td
+						style="background-image: url(../Images/top_right.gif); background-repeat: repeat-x; width: 387px; height: 101px;">
+						<div
+							style="width: 250px; margin-top: 70px; margin-right: 5px; z-index: 1;"
+							align=right id="divxt" runat=server>
+							<a href="../index.jsp" target="_parent">[重新登录]</a>&nbsp;
+							<a href="User!modifyPasswordInput.action" target="mainFrame">[修改密码]</a>&nbsp;
+							<a onclick="ComfirmExit(1)" href="#" target="mainFrame">[退出系统]</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>

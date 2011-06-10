@@ -1,0 +1,791 @@
+﻿ body{WIDTH: 100%; margin:0;
+        font-size:14px;
+        background-color:#ffffff;/*ebf0f9*/
+        /*text-align:center;*/
+    }
+	.txtfocus
+    { 
+	    border:1px solid #6699CC; 
+	    background-color:#F3FDEB;
+    }
+    
+    /*table样式*/
+    .inputtable
+	{
+	text-align:center;
+	border-collapse:collapse;
+	border:solid 1px black;	
+	}
+
+	/*table的caption样式*/
+	.table_caption
+	{
+	color:#00134d;
+	font-size:15px;
+	font-weight:bold;
+	font-family:微软雅黑;
+	height:28px;
+	vertical-align:middle;
+	}
+	.table_caption1
+	{
+	font-family: 方正小标宋简体; 
+	font-size: 22pt;
+	text-align:center;
+	}
+	.table_caption2
+	{
+	font-family: 仿宋_GB2312; 
+	font-size: 21pt;
+	text-align:center;
+	margin-top:15px;
+	}
+	.table_caption5
+	{
+	font-family: 仿宋_GB2312; 
+	font-size: 18pt;
+	text-align:center;
+	margin-top:15px;
+	}
+	.table_caption3
+	{
+	font-family: 方正小标宋简体; 
+	font-size: 18pt;
+	text-align:center;
+	}
+	.table_caption4
+	{
+	font-family: 方正小标宋简体; 
+	font-size: 20pt;
+	text-align:center;
+	}
+	.fz_td
+	{
+	font-family: 方正小标宋简体; 
+	font-size: 14pt;
+	text-align:center;
+	}
+	/*
+	.table_key_tdTopRight
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12px;
+		text-align:center;
+		border-right: LightBlue 0.1pt  solid; 
+		border-top: LightBlue 0.1pt  solid; 
+		border-left: LightBlue 0.1pt  solid; 
+		border-bottom: LightBlue 0.1pt  solid
+	}
+		.table_key_tdAll
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12px;
+		text-align:center;
+		border-right: LightBlue 0.1pt  solid; 
+		border-top: LightBlue 0.1pt  solid; 
+		border-left: LightBlue 0.1pt  solid; 
+		border-bottom: LightBlue 0.1pt  solid
+	}
+		.table_key_tdAll
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12px;
+		text-align:center;
+		border-right: LightBlue 0.1pt  solid; 
+		border-top: LightBlue 0.1pt  solid; 
+		border-left: LightBlue 0.1pt  solid; 
+		border-bottom: LightBlue 0.1pt  solid
+	}
+	*/
+	.table_td
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 15pt;
+		text-align:center;		
+		font-weight:bolder;
+	}
+	.table_key
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:center;
+	}
+	.table_keys
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 14px;
+		text-align:center;
+	}
+
+	.table_key_left
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:left;
+	}
+	.table_key_right
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:right;
+	}
+	/*改动的table_key*/
+    	.table_key1
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 13pt;
+		text-align:center;
+	}
+    .table_key1_left
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 13pt;
+		text-align:left;
+	}
+	.table_key2
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:center;
+	}
+	.table_key2_left
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:left;
+	}
+	.table_key3
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 12pt;
+		text-align:center;
+		font-weight:bolder;
+	}
+	.table_key4
+	{
+		font-family: 宋体; 
+		font-size: 13px;
+		text-align:center;
+	}
+.table_key_left4
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 13px;
+		text-align:left;
+	}
+	.table_key_right4
+	{
+		font-family: 仿宋_GB2312; 
+		font-size: 13px;
+		text-align:right;
+	}
+    /*可填写内容的文本框*/
+	.editBox
+	{
+	 width: 100%;
+	 border-width:0px; 
+	 border-bottom-width:0px;
+	 border-top-width:0px; 
+	 background-color: #cde9d0;
+	 text-align:center;
+	 font-family: 宋体; 
+	 font-size: 13pt;
+	}
+    .editBox_left
+	{
+	 width: 100%;
+	 border-width:0px; 
+	 border-bottom-width:0px;
+	 border-top-width:0px; 
+	 background-color: #cde9d0;
+	 text-align:left;
+	 font-family: 宋体; 
+	 font-size: 13px;
+	}
+	
+	/*可填写内容的文本域*/
+	.edittextarea
+	{
+	 width: 100%;
+	 height: 100%;
+	 border-width:0px; 
+	 border-bottom-width:0px;
+	 border-top-width:0px; 
+	 background-color: #cde9d0;
+	 overflow:hidden;
+	}
+	.edittextarea1
+	{
+	 width: 100%;
+	 height: 100%;
+	 border-width:0px; 
+	 border-bottom-width:0px;
+	 border-top-width:0px; 
+	 background-color: #cde9d0;
+	 font-family:仿宋_GB2312;
+	 overflow:auto;
+	 text-align:center;
+	 font-size:15px;
+	}
+		.edittextarea3
+	{
+	 width: 99%;
+	 height: 99%;
+	 border-width:0px; 
+	 border-bottom-width:0px;
+	 border-top-width:0px; 
+	 background-color: #cde9d0;
+	 overflow:hidden;
+	}
+	
+	/*内有可填写内容的文本框或文本域*/
+	.editTD
+	{	font-family: 宋体; 
+		font-size: 13pt;
+		text-align:center;
+		background-color: #cde9d0;
+	}
+	.editTD_left
+	{ 
+		font-family: 宋体; 
+		font-size: 13pt;
+		text-align:left;
+	 background-color: #cde9d0;
+	}
+	.editTD_right
+	{ 
+		font-family: 宋体; 
+		font-size: 13pt;
+		text-align:right;
+	 background-color: #cde9d0;
+	}
+	
+	.editTDBg
+	{	
+		text-align:center;
+		background-color: #cde9d0;
+	}
+	
+	.editTDBg_left
+	{ 
+		text-align:left;
+	 background-color: #cde9d0;
+	}
+	.editTDBg_right
+	{ 
+		text-align:right;
+	 background-color: #cde9d0;
+	}
+	
+ .txtblur
+    { 
+        border:1px solid #C0C0C0; 
+        background-color:#ffffff;
+    } 
+    
+.Text
+{
+	font:Tahoma;
+	font-size:9pt;
+}
+.i
+{
+	color: red;
+	
+}
+.Table
+{
+	width: 100%;
+	font-size: 12px;
+	border: #daeeee thin solid;
+	font-family: Tahoma;
+	border-collapse:collapse;
+}
+
+
+.Button
+{
+    font-family: "Tahoma";
+    font-size: 9pt; color: #003399;
+    border: 1px #003399 solid;color:#006699;
+    BORDER-BOTTOM: #93bee2 1px solid; 
+    BORDER-LEFT: #93bee2 1px solid; 
+    BORDER-RIGHT: #93bee2 1px solid; 
+    BORDER-TOP: #93bee2 1px solid;
+    background-image:url(../Images/bluebuttonbg.gif);
+    background-color: #e8f4ff;
+    CURSOR: hand;
+    font-style: normal;
+}
+.Outerborder
+{
+	border: #0144bf 1px solid;	
+}
+.TextBox
+{
+	font-family: "Tahoma";
+	/*  设置滚动条的颜色  */    
+}
+
+.ListBox
+{
+	font-family: "Tahoma";
+	/*  设置滚动条的颜色      
+    scrollbar-3dlight-color:#e8f4ff;
+    scrollbar-arrow-color:#daeeee;
+    scrollbar-darkshadow-color:#e8f4ff;
+    scrollbar-base-color:#e8f4ff;  
+    */  
+}
+
+
+
+A:ACTIVE
+{
+	color: red;
+	text-decoration: none;
+}
+A:FOCUS
+{
+	color: red;
+	text-decoration: none;
+}
+A:HOVER
+{
+	color: red;
+	text-decoration: underline;
+}
+A:LINK {
+	
+	text-decoration: none;
+}
+/*.div_ns_title,.div_ns_title_2*/
+.tab_ns_title,.tab_ns_title_2
+{
+	border:0px;
+	height:30px;
+	width:100%; 
+	margin-bottom:0px;
+}
+.tab_ns_title
+{	/*<div class=div_ns_title>*/
+	background-image:url(../Images/bg_dlmu.gif); 
+	margin-bottom:10px;
+}
+.tab_ns_title_2
+{	/*<div class=div_ns_title_2>*/
+	background-image:url(../../Images/ns_right_title_bg.jpg); 
+}
+.tab_lbl
+{/* CssClass=div_lbl*/
+	height:28px;
+	text-align:left;
+	color:#00144E;
+	padding-top:3px;
+	font-family:微软雅黑;
+	font-weight:bold;
+	font-size:15px;
+}
+
+
+/*页面背景色  丁品 2009-03-13日 添加s*/	
+.page_bj_color
+{
+	/*background-color:#b7d3f8;/*b5e1fc#ebf0f9*/
+}
+
+/*fieldset*/
+.framediv
+{
+	width: 99%;
+	border:#9ec5e6 1px solid;/*8bb1f0*/
+	text-align: center;
+	height:20px;
+}
+.disframediv
+{
+	width: 99%;
+	border: #8ee9ff 1px solid;
+	color: black;
+	background-color: #ddf7ff;
+	text-align: center;
+	height:20px;
+}
+/*column的css 肖海 2009-08-23日 添加s*/
+.bg_column{ background-image:url(../../Images/bg_lmu.gif); background-repeat:repeat-x;}	
+/*********按钮样式开始***********/
+/*按钮共有的属性,集体声明即可*/
+/*onmouseout*/
+.out_btn_two,.over_btn_two,.out_btn_three,.over_btn_three,.out_btn_fourfive,.over_btn_fourfive,.out_btn_six,.over_btn_six,.out_btn_sbg,.over_btn_sbg
+{	
+	width: 60px;
+	height: 25px;
+	cursor:hand;
+	color:black;
+	
+	border-style: none;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-image: url(../newimages/bottom01.gif);
+	font-size: 14px;
+	margin-bottom:0px;
+	padding-top:4px
+}
+.out_btn_sbg
+{
+	width: 44px;
+	height: 25px;
+	
+	background-image: url(../newimages/bottom01.gif);
+	font-size: 14px
+}
+.over_btn_sbg
+{
+	width: 44px;
+	height: 25px;
+	color:#ff5400; 
+	font-weight:bold;
+	font-size: 14px
+}
+/*两以三个字的按钮_onmouseover*/
+.over_btn_two,.over_btn_three
+{
+	color:#ff5400; 
+	font-weight:bold;
+	font-size: 14px
+}
+
+/*四到六个字的按钮_onmouseout*/
+.out_btn_fourfive
+{
+	width:135px;
+	background-image: url(../newimages/bottom135.gif);
+	font-size: 14px
+}
+
+/*四到六个字的按钮_onmouseover*/
+.over_btn_fourfive
+{
+	width:135px;
+	color:#ff5400;
+	font-weight:bold;
+	background-image: url(../newimages/bottom135.gif);
+	font-size: 14px
+}
+
+/*六个字以上的按钮_onmouseout*/
+.out_btn_six
+{
+	width:150px;
+	background-image: url(../newimages/bottom150.gif);
+	font-size: 14px
+}
+
+/*六个字以上的按钮_onmouseover*/
+.over_btn_six
+{
+	width:150px;
+	color:#ff5400;
+	font-weight:bold;
+	background-image: url(../newimages/bottom150.gif);
+	font-size: 14px
+}
+
+/*********按钮样式结束***********/
+
+
+/*按钮样式用的时候只用复制下面某一行代码就OK
+
+<LINK rel="stylesheet" type="text/css" href="css/textbox.css" />
+
+input按钮样式
+ class=out_btn_six onmouseover="this.className = 'over_btn_six';" onmouseout="this.className = 'out_btn_six';" 
+ class=out_btn_fourfive onmouseover="this.className = 'over_btn_fourfive';" onmouseout="this.className = 'out_btn_fourfive';" 
+ class=out_btn_two onmouseover="this.className = 'over_btn_two';" onmouseout="this.className = 'out_btn_two';" 
+ 
+
+asp按钮样式
+
+ CssClass=out_btn_six onmouseover="this.className = 'over_btn_six';" onmouseout="this.className = 'out_btn_six';" 
+ CssClass=out_btn_fourfive onmouseover="this.className = 'over_btn_fourfive';" onmouseout="this.className = 'out_btn_fourfive';" 
+ CssClass=out_btn_two onmouseover="this.className = 'over_btn_two';" onmouseout="this.className = 'out_btn_two';" 
+
+*/
+/*********新增表格css样式***********/
+
+/*宋体*/
+.st_table 
+{
+	font-family:宋体;
+	font-size:21pt;
+	text-align:center;
+}
+.st_table_bg
+{
+	font-family:宋体;
+	font-size:36pt;
+	text-align:center;
+}
+.st_table1 
+{
+	font-family:宋体;
+	font-size:18pt;
+	text-align:center;
+}
+.st_table2 
+{
+	font-family:宋体;
+	font-size:16pt;
+	text-align:center;
+}
+.st_td
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:center;
+}
+.st_td14
+{
+	font-family:宋体;
+    font-size:14pt;
+	text-align:center;
+}
+.st_td_left
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:left;
+	}
+.st_td_right
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:right;
+	}
+.st_table1 
+{
+	font-family:宋体;
+	font-size:18pt;
+	text-align:center;
+}
+.st_td1
+{
+	font-family:宋体;
+    font-size:10pt;
+	text-align:center;
+}
+.st_td1_left
+{
+	font-family:宋体;
+    font-size:10pt;
+	text-align:left;
+}
+.st_xh_left
+{font-family:宋体; font-size:9pt; text-align:left;
+	}
+/*其他字体*/
+.img_td
+{
+	visibility: hidden; 
+	border-bottom-style: none; 
+	border-right-style: none;
+    border-top-style: none; 
+    border-left-style: none;
+	}
+.fsxtb_table
+{	font-family:方正小标宋简体;
+	font-size:21pt;
+	text-align:center;
+	}
+.ht_table
+{
+	font-family:黑体;
+    font-size:18pt;
+	text-align:center;
+}
+.ht_td
+{
+	font-family:黑体;
+    font-size:13pt;
+	text-align:center;
+}
+.ht_td_left
+{
+	font-family:黑体;
+    font-size:13pt;
+	text-align:left;
+	}
+.ht_td_right
+{
+	font-family:黑体;
+    font-size:13pt;
+	text-align:right;
+	}
+.ktgb_table
+{   font-family:楷体_GB2312;
+	font-size:22pt;
+	text-align:center;
+	}
+.ktgb_td
+{   font-family:楷体_GB2312;
+	font-size:13pt;
+	text-align:center;
+	}
+.ktgb_td_left
+{   font-family:楷体_GB2312;
+	font-size:13pt;
+	text-align:left;
+	}
+.ktgb_td_right
+{   font-family:楷体_GB2312;
+	font-size:13pt;
+	text-align:right;
+	}
+.hkjb_table
+{	font-family:华康简标题宋;
+	font-size:22pt;
+	text-align:center;
+	}
+/*内容页面的css样式*/
+.editktgb_td
+{   font-family:楷体_GB2312;
+	font-size:12pt;
+	text-align:center;
+	background-color: #cde9d0;
+	}
+.editst_td1
+{
+	font-family:宋体;
+    font-size:10pt;
+	text-align:center;
+	background-color: #cde9d0;
+}
+.editst_xh
+{font-family:宋体; font-size:9pt; text-align:center; background-color: #cde9d0;
+	}
+.editst_td
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:center;
+	background-color: #cde9d0;
+}
+.editst_tdleft
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:left;
+	background-color: #cde9d0;
+}
+.editst_tdright
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:right;
+	background-color: #cde9d0;
+}
+.editst_td14
+{
+	font-family:宋体;
+    font-size:14pt;
+	text-align:center;
+	background-color: #cde9d0;
+}
+.edittable_key
+{
+	font-family: 仿宋_GB2312; 
+	font-size: 12pt;
+	text-align:center;
+	background-color: #cde9d0;
+	}
+/*左对齐*/
+.editktgb_td_left
+{   font-family:楷体_GB2312;
+	font-size:12pt;
+	text-align:left;
+	background-color: #cde9d0;
+	}
+.editst_td1_left
+{
+	font-family:宋体;
+    font-size:10pt;
+	text-align:left;
+	background-color: #cde9d0;
+}
+.editst_xh_left
+{font-family:宋体; font-size:9pt; text-align:left; background-color: #cde9d0;
+	}
+.editst_td_left
+{
+	font-family:宋体;
+    font-size:13pt;
+	text-align:left;
+	background-color: #cde9d0;
+}
+.editst_td14_left
+{
+	font-family:宋体;
+    font-size:13pt;
+	text-align:left;
+	background-color: #cde9d0;
+}
+.edittable_key_left
+{
+	font-family: 仿宋_GB2312; 
+	font-size: 13pt;
+	text-align:left;
+	background-color: #cde9d0;
+	}
+/*特殊情况*/
+.ht_td1
+{
+	font-family:黑体;
+    font-size:15pt;
+	text-align:center;
+	border-bottom:#000 1px solid;
+}
+.ht_td_left1
+{
+	font-family:黑体;
+    font-size:15pt;
+	text-align:left;
+	border-bottom:#000 1px solid;
+	}
+	.ht_td_left2
+{
+	font-family:黑体;
+    font-size:15pt;
+	text-align:left;
+	}
+.ht_td_right1
+{
+	font-family:黑体;
+    font-size:15pt;
+	text-align:right;
+	border-bottom:#000 1px solid;
+	}
+	.editTD1
+	{	font-family: 宋体; 
+		font-size: 15pt;
+		text-align:center;
+		background-color: #cde9d0;
+		border-bottom:#000 1px solid;
+	}
+	.editTD_left1
+	{ 
+		font-family: 宋体; 
+		font-size: 13pt;
+		text-align:left;
+	 background-color: #cde9d0;
+	 border-bottom:#000 1px solid;
+	}
+	.editTD_right1
+	{ 
+		font-family: 宋体; 
+		font-size: 13pt;
+		text-align:right;
+	 background-color: #cde9d0;
+	 border-bottom:#000 1px solid;
+	}
+
+/*特殊情况结束*/

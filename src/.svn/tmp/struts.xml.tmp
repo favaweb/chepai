@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置浏览器是否缓存静态内容,默认为true, 开发阶段最好设为false -->
+	<constant name="struts.serve.static" value="false"></constant>
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载,默认false.开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- struts.multipart.maxSize 配置最大的上传文件量 -->
+	<constant name="struts.multipart.maxSize" value="5242880"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<interceptors>
+    		<interceptor name="adminLogin" class="com.hovto.chepai.interceptor.LoginInterceptor"></interceptor>
+    		<interceptor-stack name="adminLoginStack">
+    			<interceptor-ref name="adminLogin"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<default-interceptor-ref name="adminLoginStack"></default-interceptor-ref>
+    	
+		<global-results>
+			<result name="message">/jsp/message.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.hovto.chepai.exception.ChePaiException"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="Privilege" class="privilegeAction">
+			<result name="addInput">/jsp/privilege/Privilege_addInput.jsp</result>
+			<result name="list">/jsp/privilege/Privilege_list.jsp</result>
+		</action>
+		<action name="Roler" class="rolerAction">
+			<result name="addInput">/jsp/privilege/Roler_addInput.jsp</result>
+			<result name="modifyPrivilegeInput">/jsp/privilege/Roler_modifyPrivilegeInput.jsp</result>
+			<result name="list">/jsp/privilege/Roler_list.jsp</result>
+		</action>
+		<action name="User" class="userAction">
+			<!-- 
+			<interceptor-ref name="adminLoginStack"></interceptor-ref>
+			 -->
+			<result name="addInput">/jsp/privilege/User_addInput.jsp</result>
+			<result name="modifyRolerInput">/jsp/privilege/User_modifyRolerInput.jsp</result>
+			<result name="list">/jsp/privilege/User_list.jsp</result>
+			<result name="modifyPasswordInput">/jsp/login/User_modifyPasswordInput.jsp</result>
+			<result name="login">/jsp/login/User_modifySuccessInput.jsp</result>
+		</action>
+		<action name="NumberPlate" class="numberPlateAction">
+			<result name="save">/jsp/privilege/Import.jsp</result>
+			<result name="findBySmallnessBatchId">/jsp/NumberPlate_findBySmallnessBatchId.jsp</result>
+		</action>
+		<action name="WorkFlow" class="workFlowAction">
+			<result name="list">/jsp/WorkFlow_list.jsp</result>
+		</action>
+		<action name="SmallnessBatchNumber" class="smallnessBatchNumberAction">
+			<result name="findByMakeStatus">/jsp/SmallnessBatchNumber_findByMakeStatus.jsp</result>
+			<result name="findMerger">/jsp/SmallnessBatchNumber_findMerger.jsp</result>
+		</action>
+		
+		<action name="Operator" class="operatorAction">
+		</action>
+		<action name="DisuseMaterial" class="disuseMaterialAction"></action>
+		<action name="Remakes" class="remakesAction">
+			<result name="list">/jsp/privilege/Remake_List.jsp</result>
+		</action>
+		
+		<action name="ExitAction" class="exitAction">
+			<result name="login">/jsp/login/User_loginInput.jsp</result>
+		</action>
+		
+		<!-- 半成品导入数据，类型 -->
+		<action name="SemifinishedProduct" class="semifinishedProductAction">
+		 	<result name="addType" type="redirectAction">SemifinishedProduct!findTypeList.action</result>
+		 	<result name="listType">/jsp/SemifinishedProduct_manager.jsp</result>
+		 	
+		 	<result name="operateInput">/jsp/InputRegister_operate.jsp</result>
+		 	<result name="addInput" type="redirectAction">SemifinishedProduct!operateInput.action</result>
+		 	<result name="listInput">/jsp/InputRegister_manager.jsp</result>
+		 	<result name="deleteInput" type="redirectAction" >SemifinishedProduct!findInputList.action</result>
+		 	<result name="detailInput">/jsp/InputRegister_detail.jsp</result>
+		 </action>
+		<action name="ExitAction" class="exitAction">
+			<result name="login">/jsp/login/User_loginInput.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+	</package>
+	
+	<package name="login" namespace="/login" extends="struts-default">
+		<global-results>
+			<result name="message">/jsp/message.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.hovto.chepai.exception.ChePaiException"></exception-mapping>
+		</global-exception-mappings>
+		<action name="Login" class="loginAction">
+			<result name="loginInput">/jsp/login/User_loginInput.jsp</result>
+			<result name="index" type="redirect">/index.html</result>
+			<result name="getUserPrivileges">/jsp/login/Login_getUserPrivileges.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	
+
+</struts>

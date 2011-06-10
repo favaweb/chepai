@@ -1,0 +1,155 @@
+
+body
+{
+	padding-right: 10px;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin-left: auto;
+	width: 80%;
+	margin-right: auto;
+	padding-top: 0px;
+	font-family: verdana;
+}
+
+#header {
+	
+}
+
+.required {
+	border:solid 2px red;
+	background:#ffc;
+}
+
+.alert {
+	color:blue;
+}
+
+/* Form */
+
+.form {
+	border: solid 2px #999;
+	padding:10px;
+	background: #ffffff;
+	list-style:none;
+}
+
+.form label {
+	display:block;
+	font-size: 9pt;
+}
+
+
+.input, input
+{
+	margin-top: 3px;
+	background: white;
+	margin-bottom: 10px;
+	font-family: verdana;
+}
+
+.button {
+
+	font-family: verdana;
+	border: solid 1px #999;
+	background:#eee;
+	font-size:12pt;
+}
+
+#chatpane 
+{
+	height:300px;
+	width:75%;
+	float:left;
+	color:Black;
+	border:solid 3px #4D4D4D;
+	background:white;
+	padding:4px;
+	margin-bottom:4px;
+	overflow:auto;
+}
+
+#userpane
+{
+	height:300px;
+	width:20%;
+	float:right;
+	
+	color:Black;
+	
+	overflow:auto;
+	
+	border:solid 3px #4D4D4D;
+	background:white;
+	padding:4px;
+	margin-bottom:4px;
+}
+
+#chatpane ul,
+#userpane ul 
+{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+}
+
+#chatpane ul li,
+#userpane ul li 
+{
+	font-size:8pt;
+}
+
+.servermsg 
+{
+	color:Red;
+}
+
+.actionmsg
+{
+	color:Blue;
+}
+
+.mytext 
+{
+	width:100%;
+}
+
+.clear 
+{
+	clear:left;
+}
+
+#charcount 
+{
+	font-size:8pt;
+	padding:3px;
+	border:solid 2px white;
+	background:#eef;
+	width:100px;
+	margin:1px;
+}
+
+#footer {
+	
+	border-top: solid 2px #ccc;
+	margin-top:20px;
+	padding:5px;
+	text-align:center;
+}
+
+#username
+{	color:#fff;
+	}
+
+/*sim addon*/
+		body{background:#ccccbb; margin:0px; padding:0px; font:0.9em verdana;width:100%;}
+		h1{padding:50px 10px; background:#666  url(../img/bonsai.jpg) no-repeat top right; color:#fff; border-bottom:5px solid #444; font-size:2.0em; }
+		h2{margin:3px 0px; font-size:120%;}
+		strong{color:#555;}
+		table{font-size:90%; width:100%;}
+		td{padding:2px;}
+		#form1{margin:10px;}
+		#main,#footer{background:#FFFFF0; padding:10px; width:50%; margin:0px; }
+		#main{border-bottom:1px solid #444;}
+		#footer{background:#877554;border-top:1px solid #555;}
+		.error{color:#cc0000}

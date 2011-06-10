@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.encoding" value="GBK" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置浏览器是否缓存静态内容,默认为true, 开发阶段最好设为false -->
+	<constant name="struts.serve.static" value="false"></constant>
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载,默认false.开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- struts.multipart.maxSize 配置最大的上传文件量 -->
+	<constant name="struts.multipart.maxSize" value="5242880"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<!-- 
+		<interceptors>
+    		<interceptor name="adminLogin" class="xh.shopping.interceptor.UserLoginInterceptor"></interceptor>
+    		<interceptor-stack name="adminLoginStack">
+    			<interceptor-ref name="adminLogin"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+		 -->
+		<global-results>
+			<result name="message">/message.jsp</result>
+			<result name="error">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.hovto.chepai.exception.ChePaiException"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="Privilege" class="privilegeAction">
+			<result name="addInput">/Privilege_addInput.jsp</result>
+			<result name="list">/Privilege_list.jsp</result>
+		</action>
+		<action name="Roler" class="rolerAction">
+			<result name="addInput">/Roler_addInput.jsp</result>
+			<result name="modifyPrivilegeInput">/Roler_modifyPrivilegeInput.jsp</result>
+			<result name="list">/Roler_list.jsp</result>
+		</action>
+		<action name="User" class="userAction">
+			<result name="addInput">/User_addInput.jsp</result>
+			<result name="modifyRolerInput">/User_modifyRolerInput.jsp</result>
+			<result name="list">/User_list.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</package>
+
+</struts>

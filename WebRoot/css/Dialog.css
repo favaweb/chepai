@@ -1,0 +1,69 @@
+﻿body {
+}
+table
+{
+	width: 90%;
+	font-size: 14px;
+	border-right: #daeeee thin solid;
+	border-top: #daeeee thin solid;
+	border-left: #daeeee thin solid;
+	border-bottom: #daeeee thin solid;
+	font-family: Tahoma;
+	border-collapse: collapse;
+	text-align: center;
+}
+.tr
+{
+	height:21px;
+	
+	}
+
+.checkdiv
+{
+	width:50%;
+	border-right: #006600 1px solid;
+	border-top: #006600 1px solid;
+	border-left: #006600 1px solid;
+	border-bottom: #006600 1px solid;
+}
+.createinput
+{
+	width:90%;
+	}
+
+.Outerborder
+{
+	border-right: #666666 thin solid;
+	border-top: #666666 thin solid;
+	border-left: #666666 thin solid;
+	border-bottom: #666666 thin solid;
+}
+.ceeatetextarea
+{
+	width:95%;
+	height:70px;
+	}
+td
+{
+	font-family: "宋体";
+	text-decoration: none;
+	background-color: white;
+	vertical-align:middle;
+}
+.tdTitle
+{
+	font-family: "宋体";
+	font-size:14px;
+	font-weight: bold;
+	background-image:url(../Images/bg_dlmu.gif); 
+	color: #006;
+	height:30px;
+}
+rightalign
+{
+	text-align:right;
+}
+redfont
+{
+	color: red;
+}

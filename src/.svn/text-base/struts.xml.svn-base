@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.devMode" value="true" />
+	<!-- 设置浏览器是否缓存静态内容,默认为true, 开发阶段最好设为false -->
+	<constant name="struts.serve.static" value="false"></constant>
+	<!-- 当struts的配置文件修改后,系统是否自动重新加载,默认false.开发阶段最好打开 -->
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<!-- struts.multipart.maxSize 配置最大的上传文件量 -->
+	<constant name="struts.multipart.maxSize" value="5242880"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+
+	<package name="default" namespace="/" extends="struts-default">
+	
+		<interceptors>
+    		<interceptor name="adminLogin" class="com.hovto.chepai.interceptor.LoginInterceptor"></interceptor>
+    		<interceptor-stack name="adminLoginStack">
+    			<interceptor-ref name="adminLogin"></interceptor-ref>
+    			<interceptor-ref name="defaultStack"></interceptor-ref>
+    			<interceptor-ref name="token">
+					<param name="includeMethods">merger,goFlows,shuffleUpdate,updateByStuts,saveFeeNumberId,save,updateWorkFlow,goNextFlow,update,remakesFinish,baleRemakes,changeTask,upgrade,add</param>
+				</interceptor-ref>
+    		</interceptor-stack>
+    	</interceptors>
+    	
+    	<!-- 
+    	<default-interceptor-ref name="adminLoginStack"></default-interceptor-ref>
+    	<interceptor-ref name="token">
+			<param name="includeMethods">save,,goFlows,</param>
+		</interceptor-ref>
+		
+		
+		
+    	 -->
+    	<default-interceptor-ref name="adminLoginStack"></default-interceptor-ref>
+    	
+		<global-results>
+			<result name="message">/jsp/message.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+			<result name="invalid.token" type="redirect">/jsp/token.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.hovto.chepai.exception.ChePaiException"></exception-mapping>
+		</global-exception-mappings>
+		
+		<action name="Privilege" class="privilegeAction">
+			<result name="addInput">/jsp/privilege/Privilege_addInput.jsp</result>
+			<result name="list">/jsp/privilege/Privilege_list.jsp</result>
+		</action>
+		<action name="Roler" class="rolerAction">
+			
+			<result name="modifyPrivilegeInput">/jsp/privilege/Roler_modifyPrivilegeInput.jsp</result>
+			<result name="list">/jsp/privilege/Roler_list.jsp</result>
+		</action>
+		<action name="User" class="userAction">
+			<result name="addInput">/jsp/privilege/User_addInput.jsp</result>
+			<result name="modifyRolerInput">/jsp/privilege/User_modifyRolerInput.jsp</result>
+			<result name="modifyInfoInput">/jsp/privilege/User_modifyInfoInput.jsp</result>
+			<result name="list">/jsp/privilege/User_list.jsp</result>
+			<result name="modifyPasswordInput">/jsp/login/User_modifyPasswordInput.jsp</result>
+			<result name="login">/jsp/login/User_modifySuccessInput.jsp</result>
+		</action>
+		<action name="NumberPlate" class="numberPlateAction">
+			<result name="importInput">/jsp/order/Import.jsp</result>
+			
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_Show.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_Show.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_Show.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_Show.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_Show.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_Show.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_Show.jsp</result>
+			
+			<result name="CounterpressureList">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="ShuffleList">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="StitchingoilList">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="BarotropyList">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="LlniteList">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="ImprinterList">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlniteList">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+			
+			<result name="findByOrder">/jsp/order/NumberPlate_findByOrder.jsp</result>
+			<result name="save">/jsp/order/Import.jsp</result>
+			<result name="findBySmallnessBatchId">/jsp/NumberPlate_findBySmallnessBatchId.jsp</result>
+			<result name="find">/jsp/WorkFlow_list.jsp</result>
+			
+			<result name="makeYazhiDan">/jsp/workflow/YazhiDan_show.jsp</result>
+			<result name="makeBaozhiDan">/jsp/workflow/BaozhiDan_Show.jsp</result>
+			<result name="packPrint">/jsp/workflow/PackPrint_show.jsp</result>
+			<result name="mergepackPrint">/jsp/workflow/MergePackPrint_show.jsp</result>
+			<result name="typeStats">/jsp/store/NumberPlate_typeStats.jsp</result>
+			
+		</action>
+		<action name="WorkFlow" class="workFlowAction">
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+			<result name="findByConditionInput">/jsp/workflow/WorkFlow_findByConditionInput.jsp</result>
+			<result name="findByBigNo">/jsp/workflow/WorkFlow_findByBigNo.jsp</result>
+		</action>
+		
+		<action name="SmallnessBatchNumber" class="smallnessBatchNumberAction">
+			<result name="findByMakeStatus">/jsp/order/SmallnessBatchNumber_findByMakeStatus.jsp</result>
+			<result name="findMerger">/jsp/order/SmallnessBatchNumber_findMerger.jsp</result>
+		 	<result name="findIsDeliverByBig">/jsp/store/SmallnessBatchNumber_findIsDeliverByBig.jsp</result>
+		 	<result name="selectIsDeliverByBig">/jsp/individualStat/SmallnessBatchNumber_findIsDeliverByBig.jsp</result>
+		 	<result name="queryPrepareWork">/jsp/workflow/SmallnessBatchNumber_queryPrepareWork.jsp</result>
+		 	<result name="findPrepareWork">/jsp/workflow/SmallnessBatchNumber_findPrepareWork.jsp</result>
+		 	<result name="findFlowOperator">/jsp/store/SmallnessBatchNumber_findFlowOperator.jsp</result>
+		 	<result name="findHeBin">/jsp/order/SmallnessBatchNumber_findHeBin.jsp</result>
+		 	<result name="findFlowByBig">/jsp/workflow/SmallnessBatchNumber_findFlowByBig.jsp</result>
+		</action>
+		
+		<action name="Operator" class="operatorAction">
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+			<result name="find">/jsp/WorkFlow_list.jsp</result>
+			<result name="findNumberPlate">/jsp/NumberPlate_findBySmallnessBatchId.jsp</result>
+			<result name="findBySmallBatchId">/jsp/workflow/Operator_findBySmallBatchId.jsp</result>
+		</action>
+		<action name="DisuseMaterial" class="disuseMaterialAction">
+			<result name="list">/jsp/disuseMaterial/DisuseMaterial_list.jsp</result>
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="stats">/jsp/store/DisuseMaterial_stats.jsp</result>
+			<result name="addInput">/jsp/store/DisuseMaterial_addInput.jsp</result>
+			<result name="findOutputStatsInput">/jsp/disuseMaterial/DisuseMaterial_findOutputStatsInput.jsp</result>
+			
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+		</action>
+		
+		<action name="Remakes" class="remakesAction">
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+			
+			<result name="list">/jsp/workflow/Remake_List.jsp</result>
+			<result name="find">/jsp/WorkFlow_list.jsp</result>
+			<result name="findNumberPlate">/jsp/NumberPlate_findBySmallnessBatchId.jsp</result>
+		</action>
+		<action name="BigBatchNumber" class="bigBatchNumberAction">
+			<result name="findIsDeliverGoods">/jsp/store/BigBatchNumber_findIsDeliverGoods.jsp</result>
+			<result name="selectIsDeliverGoods">/jsp/individualStat/BigBatchNumber_findIsDeliverGoods.jsp</result>
+			<result name="findByMakeStatus">/jsp/order/BigBatchNumber_findByMakeStatus.jsp</result>
+		</action>
+		
+		<action name="ExitAction" class="exitAction">
+			<result name="login">/jsp/login/User_loginInput.jsp</result>
+		</action>
+		
+		<!-- 半成品导入数据，类型 -->
+		<action name="SemifinishedProduct" class="semifinishedProductAction">
+		 	<result name="addType" type="redirectAction">SemifinishedProduct!findTypeList.action</result>
+		 	<result name="listType">/jsp/store/SemifinishedProduct_manager.jsp</result>
+		 	<result name="reserveList">/jsp/store/Reserve_list.jsp</result>
+		 	<result name="operateInput">/jsp/store/InputRegister_operate.jsp</result>
+		 	<result name="addInput" type="redirectAction">SemifinishedProduct!operateInput.action</result>
+		 	<result name="listInput">/jsp/store/InputRegister_manager.jsp</result>
+		 	<result name="deleteInput" type="redirectAction" >SemifinishedProduct!findInputList.action</result>
+		 	<result name="detailInput">/jsp/store/InputRegister_detail.jsp</result>
+		 	
+		 	<result name="inInput">/jsp/store/InputRegister_in.jsp</result>
+		 	<result name="outInput">/jsp/store/InputRegister_out.jsp</result>
+		 </action>
+		 <!-- 仓库统计 -->
+		 <action name="StatisticsInput" class="statisticsInputAction">
+		 	<result name="findList">/jsp/store/InputRegister_statistics.jsp</result>
+		 	<result name="finishedByMonth">/jsp/store/MonthfinishedProduct_statistics.jsp</result>
+		 	<result name="findFinishedList">/jsp/store/FinishedProduct_statistics.jsp</result>
+		 	<result name="statisticsMaterial">/jsp/disuseMaterial/DisuseMaterial_statistics.jsp</result>
+		 	<result name="boxstat">/jsp/store/FinishedProduct_boxstat.jsp</result>
+		 </action>
+		<action name="ExitAction" class="exitAction">
+			<result name="login">/index.jsp</result>
+		</action>
+		<action name="IndividualOutput" class="individualOutputAction">
+			<result name="list">/jsp/individualStat/IndividualStat_list.jsp</result>
+			<result name="findOutputStatsInput">/jsp/individualStat/IndividualStat_findOutputStatsInput.jsp</result>
+			<result name="findPersonStatsInput">/jsp/individualStat/IndividualStat_findPersonStatsInput.jsp</result>
+		</action>
+		<action name="BatchNumberMerge" class="batchNumberMergeAction">
+			<result name="findMergerBySmallId">/jsp/workflow/BatchNumberMerge_findMergerBySmallId.jsp</result>
+		</action>
+		<action name="BatchRefashion" class="batchRefashionAction">
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+			<result name="list">/jsp/workflow/BatchRefashion_list.jsp</result>
+		</action>
+		<action name="TaskAllocation" class="taskAllocationAction">
+			<result name="Counterpressure">/jsp/workflow/Counterpressure_list.jsp</result>
+			<result name="Shuffle">/jsp/workflow/Shuffle_list.jsp</result>
+			<result name="Stitchingoil">/jsp/workflow/Stitchingoil_list.jsp</result>
+			<result name="Barotropy">/jsp/workflow/Barotropy_list.jsp</result>
+			<result name="Llnite">/jsp/workflow/Llnite_list.jsp</result>
+			<result name="Imprinter">/jsp/workflow/Imprinter_list.jsp</result>
+			<result name="AlwaysLlnite">/jsp/workflow/AlwaysLlnite_list.jsp</result>
+		</action>
+		
+		<action name="TaskInstall" class="taskInstallAction">
+			<result name="list">/jsp/workflow/TaskInstall_list.jsp</result>
+			<result name="modifyInput">/jsp/workflow/TaskInstall_modifyInput.jsp</result>
+		</action>
+		<action name="PostAddress" class="postAddressAction">
+			<result name="list">/jsp/store/PostAddress_list.jsp</result>
+			<result name="detail">/jsp/store/PostAddress_detail.jsp</result>
+			<result name="addInput">/jsp/store/PostAddress_addInput.jsp</result>
+		</action>
+		
+		
+		
+		
+		
+	</package>
+	
+	<package name="login" namespace="/login" extends="struts-default">
+		<global-results>
+			<result name="message">/jsp/message.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="error" exception="com.hovto.chepai.exception.ChePaiException"></exception-mapping>
+		</global-exception-mappings>
+		<action name="Login" class="loginAction">
+			<result name="loginInput">/index.jsp</result>
+			<result name="index" type="redirect">/page/index.html</result>
+			<result name="getUserPrivileges">/jsp/login/Login_getUserPrivileges.jsp</result>
+		</action>
+	</package>
+	
+	
+	
+	
+	
+
+</struts>

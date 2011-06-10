@@ -1,0 +1,324 @@
+
+/*公共样式表*/
+.l_border{ border:#E8E8E8 solid 1px;}
+/*首页样式表*/
+#CLeft{float:left;width:620px;background: url(../Images/left_bg.gif) repeat-y;}
+#CRight{
+	float:right;
+	width:382px;
+	background-color: #eeeeee;
+}
+/*首页左边样式表*/
+#daodu{
+   margin:0px;
+   padding:0px;
+}
+.sitesearch{
+    margin:4px auto;
+	width:584px;
+	height:31px;
+	padding:8px 0px 0px 20px;
+	border-left:solid 1px #BBBBBB;
+	border-right:solid 1px #BBBBBB;
+	background:url(../Images/gov_WMCMS_35.gif) repeat-x;
+}
+.s_cnt{
+    padding-left:40px;
+    background:url(../Images/search.gif) no-repeat center left;
+}
+#picture{
+   float:left;
+   margin-left:6px ;
+   display:inline;
+   width:244px;
+   height:230px;
+   border:1px solid #e8e8e8;
+   padding:1px;
+   background:url(../Images/gov_WMCMS_22.gif);
+}
+.tt_tj{
+   float:right;
+   width:350px;
+   display:inline;
+   margin-right:6px;
+}
+.tiaotiao{
+   width:100%;
+   height:53px;
+   text-align:center;
+   line-height:53px;
+   font-size:25px;
+   font-weight:bold;
+   color:#FF0000;
+   border:1px solid #BDE1FB;
+   background:url(../Images/toutiao_bg.gif);
+}
+
+.tiaotiao a:link,.tiaotiao a:visited{
+    color:#f00;
+    text-decoration:none;
+}
+
+.tiaotiao a:hover{
+    background:  #F7F7F7;
+    color:#CD1111;
+    text-decoration:none;
+}
+.tj{width:95%;padding:4px;}
+
+.art{
+    display:inline;
+    width:300px;
+    margin:0px 0px 5px 5px;
+	border-left:solid 1px #BBBBBB;
+	border-right:solid 1px #BBBBBB;
+	border-bottom:solid 1px #BBBBBB;
+	BACKGROUND: url(../images/gov_WMCMS_43.gif) repeat-x; 	
+}
+.art_right{
+    margin-right:6px;
+}
+.newpic{
+    margin:0px auto;
+	width:600px;
+	height:130px;
+	padding:10px 5px 0px 5px;
+	background:url(../Images/gov_WMCMS_64.gif) repeat-x;
+}
+.pic_t{
+	height:110px;
+	background:url(../Images/gov_WMCMS_65.gif) no-repeat center left;
+}
+.scrollpic{
+   overflow:hidden;
+   height:110px;
+   width:560px;
+   margin-left:40px;
+   display:inline;
+}
+.pic_cont{
+   width:120px; 
+   height:90px; 
+   margin:4px; 
+   padding:4px !important; 
+   padding:4px 4px 0px 4px ;
+   border:1px solid #bbb;
+   background:#FFF;
+}
+.pic_cont_Hover{
+   border:1px solid #0799DD;
+}
+.hudong{
+   width:610px;
+   margin:4px auto;
+   background:url(../Images/gov_WMCMS_67.gif) repeat-x #ffffff;
+   border-bottom:1px solid #bbb;
+   padding-bottom:4px;
+}
+.vote{
+   width:205px;
+   padding:0px;
+   marign:0px;
+}
+.vote_tit{
+   padding:0px;
+   marign:0px;
+   color:#007BC9;
+   font-size:14px;
+   font-weight:bold; 
+   height:41px;
+   line-height:41px;
+   text-align:center;
+   background:url(../Images/gov_WMCMS_69.gif) no-repeat;
+}
+.vote_list{
+   padding-left:8px;
+   line-height:20px;
+   border-left:1px solid #C0C0C0;
+   border-right:1px solid #C0C0C0;
+}
+.vote_bottom{
+   height:3px;
+   margin:0px;
+   padding:0px;
+   font-size:0px;
+   background:url(../Images/gov_WMCMS_76.gif) no-repeat;
+}
+
+.hd{
+   width:400px;
+}
+
+.bm{
+   width:610px;
+   min-height:120px;
+   height:auto!important;
+   
+}
+.onebm{
+   width:610px;
+   min-height:120px;
+   height:auto!important;
+   background: url(../Images/gov_WMCMS_71.gif) repeat-x left top;
+   
+}
+
+.T_Menu_style {
+	MARGIN-LEFT: 10px;
+	 HEIGHT: 28px
+}
+.T_Menu_style LI {
+	FONT-SIZE: 12px;
+	FLOAT: left;
+	WIDTH: auto;
+	padding:0px 10px;
+	CURSOR: pointer;
+	COLOR: #007BC9;
+	font-weight:normal;
+	LINE-HEIGHT: 24px;
+	HEIGHT: 24px;
+	TEXT-ALIGN: center;
+	list-style:none;
+	border-right:1px solid #bbb;
+}
+.T_Menu_style LI.selectd {
+    HEIGHT: 28px;border:none;
+	BACKGROUND: url(../images/slide_menu.gif) no-repeat center 0px; COLOR: #007BC9;
+}
+
+
+/*首页右边样式表*/
+.Rcnt1{
+    margin:auto;
+	width:366px;
+}
+
+.zt{
+   width:175px;
+   padding:0px;
+   margin:0px;
+}
+.zt_tit{
+   padding:0px;
+   marign:0px;
+   font-size:14px;
+   font-weight:bold; 
+   height:40px;
+   line-height:40px;
+   text-align:center;
+   background:url(../Images/gov_WMCMS_17.gif) no-repeat;
+}
+.gg_tit{
+   padding:0px;
+   marign:0px;
+   font-size:14px;
+   font-weight:bold; 
+   height:40px;
+   line-height:40px;
+   text-align:center;
+   background:url(../Images/gov_WMCMS_19.gif) no-repeat;}
+.zt_list{
+   min-height:135px;
+   height:auto !important;
+   height:135px;
+   padding:0px 4px;
+   line-height:20px;
+   border-left:1px solid #C0C0C0;
+   border-right:1px solid #C0C0C0;
+}
+.pic_sp {
+	margin:0px;	
+	text-align:center;
+}
+.pic_sp Li {
+	padding: 2px;
+}
+.zt_bottom{
+   height:4px;
+   margin:0px;
+   padding:0px;
+   font-size:0px;
+   background:url(../Images/gov_WMCMS_27.gif) no-repeat;
+}
+.ads1{
+    margin:4px auto;
+	width:364px;
+	height:90px;
+	padding:1px;
+	border:1px solid #C0C0C0;
+}
+
+.b_banshi,.hotnews,.stat{
+   margin:0px 0px 10px 0px;
+   border-bottom:0px solid #bbb;
+}
+
+.oneb_banshi{
+   
+   border-bottom:0px solid #bbb;
+   
+}
+.bs_bottom{
+   height:4px;
+   margin:0px;
+   padding:0px;
+   font-size:0px;
+   
+}
+.banshi{
+   min-height:180px;
+   height:auto !important;
+   height:180px;
+}
+.bmfw{
+   margin:8px auto;
+   padding:3px;
+   text-align:center;
+   border:1px solid #bbb;
+   background:url(../Images/fw_bg.gif) repeat-x left top;
+}
+.shenpi{
+    padding-bottom:6px;
+}
+.myform{
+    padding:2px 0px 1px 10px;
+	margin-bottom:6px;
+}
+.visit{
+    width:44%;
+	padding:0px 10px;
+	margin:8px auto;
+	border-right:1px solid #bbb;
+}
+.bm_article{
+    width:45%;
+	padding:8px 4px;
+	background-color: #eeeeee;
+}
+.login_email{
+   margin:10px auto;
+   background:url(../Images/gov_WMCMS_79.gif) repeat-x #ffffff;
+   border:1px solid #bbb;
+}
+.email{
+   padding:8px;
+}
+.friend_link,.linkmap{
+   margin:4px auto;
+   width:590px;
+   border:1px solid #bbb;
+   height:24px;
+   padding:8px;
+   text-align:center;
+}
+.friend_link li{
+   width:146px;
+   float:left;
+}
+.linkmap li{
+   width:88px;
+   float:left;
+   padding:0px 2px;
+}
+
+

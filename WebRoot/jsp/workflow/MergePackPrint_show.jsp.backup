@@ -1,0 +1,70 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<base href="<%=basePath%>">
+
+		<title></title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
+		<META http-equiv=Content-Type content="text/html; charset=gbk" />
+		<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	width: 100%;
+	text-align: center;
+}
+
+tr {
+	
+}
+</style>
+
+<SCRIPT type="text/javascript"> 
+
+function smallprint(){
+	var count = document.getElementById("count").value;
+	var sid;
+	for(var i=0;i<count;i++){
+		sid=document.getElementById("s"+i).value;
+		window.open("NumberPlate!packPrint.action?smallnessBatchNumberId="+sid);
+	}
+	window.close();
+}
+　　</SCRIPT>
+<!--media=print 这个属性说明可以在打印时有效-->
+<!--希望打印时不显示的内容设置class="Noprint"样式-->
+<!--希望人为设置分页的位置设置class="PageNext"样式-->
+<style media="print">
+<!--
+.Noprint{display:none;}
+.PageNext{page-break-after:always;}
+-->
+</style>
+
+	</head>
+	<body onload="javascript:smallprint();">
+<OBJECT id="wb" height="0" width="0" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" name="wb"></OBJECT>
+	<form id="myform">
+	<input type="hidden" id="count" value="<s:property value='smallnessBatchNumbers.size' /> " />
+	<s:iterator value="smallnessBatchNumbers" var="small" status="status">
+		<input type="hidden" id="s<s:property value='#status.index' />" value="<s:property value='#small.id' />" />
+	</s:iterator>
+	</form>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="chepai"
+  id="myeclipse.1291286426406"
+  context-root="/chepai"
+  j2ee-spec="5.0"
+  archive="chepai.war">
+  <attributes>
+    <attribute name="webrootdir" value="/WebRoot" />
+  </attributes>
+</project-module>
+

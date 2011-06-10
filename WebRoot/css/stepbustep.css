@@ -1,0 +1,43 @@
+﻿.td
+{
+	border-right: #3399cc thin solid;
+	border-top: #3399cc thin solid;
+	border-left: #3399cc thin solid;
+	border-bottom: #3399cc thin solid;
+	border-collapse: collapse;
+	text-align: center;
+}
+.table{
+	border-right: #3399cc thin solid;
+	border-top: #3399cc thin solid;
+	border-left: #3399cc thin solid;
+	border-bottom: #3399cc thin solid;
+	border-collapse:collapse;
+}
+.Title 
+{
+	text-align:center;
+	font-size: 24px;
+	font-weight: bold;
+}
+.ddd
+{
+	border-right: #3399cc thin solid;
+	border-top: #3399cc thin solid;
+	border-left: #3399cc thin solid;
+	border-bottom: #3399cc thin solid;
+}
+.editst_td
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:center;
+	background-color: #cde9d0;
+}
+.editst_tdleft
+{
+	font-family:宋体;
+    font-size:12pt;
+	text-align:left;
+	background-color: #cde9d0;
+}

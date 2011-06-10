@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>车牌制作管理系统</title>
+		<style type="text/css">
+			body {
+				background-color: #CCCCCC;
+			}
+			.STYLE1 {font-family: "微软雅黑"}
+        </style>
+</head>
+
+	<body style="margin:0px; padding:0px; background-color:#e9f7fe">
+		<br/>
+		<div>
+			<table width="100%" border="0" align="left" cellpadding="1px" cellspacing="1">
+				
+				<tr>
+					<td>
+						<span class="STYLE1" style="font-weight: bold;text-align: center;" target="mainFrame">生产单管理</span>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="./jsp/privilege/Import.jsp" target="mainFrame" class="STYLE1">导入导出</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						<a href="SmallnessBatchNumber!findMerger.action" target="mainFrame" class="STYLE1">合并任务</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="SmallnessBatchNumber!findByMakeStatus.action?smallnessBatchNumber.makeStatus=0" target="mainFrame" class="STYLE1">待发任务</a>					</td>
+				</tr>
+				<tr>
+					<td>
+
+						<span class="STYLE1" style="font-weight: bold;text-align: center;">流程管理</span>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=1"  class="STYLE1" target="mainFrame">反压</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=2" class="STYLE1" target="mainFrame">洗牌</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=3" class="STYLE1" target="mainFrame">滚油</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=4" class="STYLE1" target="mainFrame">正压</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=5" class="STYLE1" target="mainFrame">质检</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=6" class="STYLE1" target="mainFrame">打码</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!list.action?flowTypeId=7" class="STYLE1" target="mainFrame">总质检</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="WorkFlow!findByConditionInput.action" class="STYLE1" target="mainFrame">流程查询</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="STYLE1" style="font-weight: bold;text-align: center;" target="mainFrame">仓库管理</span>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="SemifinishedProduct!reserveList.action" target="mainFrame" class="STYLE1">剩余库存</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="StatisticsInput!findList.action" target="mainFrame" class="STYLE1">库存统计</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#" class="STYLE1">成品管理</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="BigBatchNumber!findIsDeliverGoods.action" class="STYLE1" target="mainFrame">发货管理</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#" class="STYLE1" target="mainFrame">废品统计</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="/chepai/jsp/InputRegister_manager.jsp" target="mainFrame" class="STYLE1">半成品管理</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="STYLE1" style="font-weight: bold;text-align: center;" target="mainFrame">查询统计</span>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="IndividualOutput!findUsersAll.action" target="mainFrame" class="STYLE1">个人产量</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="DisuseMaterial!findUsersAll.action" target="mainFrame" class="STYLE1">个人废牌</a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="#" class="STYLE1">废牌统计</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<span class="STYLE1" style="font-weight: bold;text-align: center;" target="mainFrame">系统管理</span>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="IndividualOutput!findOutputStatsInput.action" target="mainFrame" class="STYLE1">产量统计</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="Privilege!list.action" target="mainFrame" class="STYLE1">权限列表</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="Roler!list.action" target="mainFrame" class="STYLE1">角色列表</a>					</td>
+				</tr>
+				<tr>
+					<td>
+						<a href="User!list.action" target="mainFrame" class="STYLE1">用户列表</a>					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
